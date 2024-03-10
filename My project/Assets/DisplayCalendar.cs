@@ -5,7 +5,7 @@ using System;
 using UnityEngine.UI;
 using TMPro;
 
-public class CalendarLogic : MonoBehaviour
+public class DisplayCalendar : MonoBehaviour
 {
 
     /// Every Cell in the calendar, each Day.
