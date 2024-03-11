@@ -5,7 +5,7 @@ using System;
 using UnityEngine.UI;
 using TMPro;
 
-public class CalendarLogic : MonoBehaviour
+public class DisplayCalendar : MonoBehaviour
 {
     // useless comment
     /// Every Cell in the calendar, each Day.
@@ -66,18 +66,18 @@ public class CalendarLogic : MonoBehaviour
         // Creates days (Only happens at the beginning to create game objects)
 
         if(days.Count == 0) {                       // For every week (0 - 6), and for every day (0 - 7)
-            for (int w = 0; w < 6; w++) {   
-                for (int i = 0; i < 7; i++) {
+            for (int week = 0; week < 6; week++) {   
+                for (int dayOfWeek = 0; dayOfWeek < 7; dayOfWeek++) {
 
                     Day newDay;
-                    int currDay = (w * 7) + i;      // Our day will account for previous weeks before it. 
+                    int currDayNum = (week * 7) + dayOfWeek;      // Our day will account for previous weeks before it. 
 
-                    if (currDay < startDay || currDay - startDay >= endDay) {          // If our day is before day 1, or greater than the end of the month, make it gray. 
-                        newDay = new Day(currDay - startDay, Color.grey, weeks[w].GetChild(i).gameObject);
+                    if (currDayNum < startDay || currDayNum - startDay >= endDay) {          // If our day is before day 1, or greater than the end of the month, make it gray. 
+                        newDay = new Day(currDayNum - startDay, Color.grey, weeks[week].GetChild(dayOfWeek).gameObject);
                         }
 
                     else { 
-                        newDay = new Day(currDay - startDay, Color.white,weeks[w].GetChild(i).gameObject); 
+                        newDay = new Day(currDayNum - startDay, Color.white,weeks[week].GetChild(dayOfWeek).gameObject); 
                         }                                                              // Otherwise make it a viable day with color white.                          
 
                     days.Add(newDay);   // Add it to our list of days. 
@@ -118,6 +118,8 @@ public class CalendarLogic : MonoBehaviour
 
     //  This either adds or subtracts one month from our currDate.
     //  Function utilized to swap between future and past dates. 
+    //  Direction = -1 (left) 1 (right)
+    //  TODO: Make direction enum
     public void SwitchMonth(int direction)
     {
         if(direction < 0) { currDate = currDate.AddMonths(-1); }    // Go back 1 month
