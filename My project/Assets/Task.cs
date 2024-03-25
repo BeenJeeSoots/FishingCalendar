@@ -1,8 +1,8 @@
-using System
+using System;
 
 public class Task : CalendarItem {
 
-    public bool completed
+    public bool completed;
 
     public Task(string title, string description){
         this.title = title;

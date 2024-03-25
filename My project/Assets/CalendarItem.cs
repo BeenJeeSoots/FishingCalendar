@@ -2,7 +2,7 @@
 
 public abstract class CalendarItem {
 
-    public string title { get; }
-    public string description { get; }
+    public string title { get; set; }
+    public string description { get; set; }
 
 }
