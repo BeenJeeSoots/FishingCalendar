@@ -389,18 +389,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1512758558301737593}
-        m_TargetAssemblyTypeName: DayLogic, Assembly-CSharp
-        m_MethodName: CANCEL_Button
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PopUpScript, Assembly-CSharp
+        m_MethodName: PopupSetInvis
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CANCEL_Button()
+          m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!1 &5775651050693260978
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,18 +522,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7570337254176707569}
-        m_TargetAssemblyTypeName: DayLogic, Assembly-CSharp
-        m_MethodName: OK_Button
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PopUpScript, Assembly-CSharp
+        m_MethodName: PopupSetInvis
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: OK_Button()
+          m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!1 &5875176597910761789
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,6 +931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b65ccbe7f2f3f4db1e5d0f2cf97b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popup_Prefab: {fileID: 0}
 --- !u!1 &8949595607247187102
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,3 +980,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b65ccbe7f2f3f4db1e5d0f2cf97b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popup_Prefab: {fileID: 0}
