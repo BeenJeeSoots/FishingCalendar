@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Day : MonoBehaviour
+public class Day
 {
-    DateTime currentDate;
-    Event[] TodaysEvents;
+   public DateTime currentDate;
+   public Event[] TodaysEvents;
 
     public Day(DateTime date){
 
