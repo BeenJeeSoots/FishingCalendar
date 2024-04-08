@@ -31,7 +31,7 @@ public class DayLogic : MonoBehaviour
         okayResponse = null;
         Debug.Log("OK");
 
-        Destroy(gameObject);
+        Destroy(popup_Prefab);
     }
 
     // When 'CANCEL' button is clicked, we will call Cancel response action.
@@ -40,7 +40,7 @@ public class DayLogic : MonoBehaviour
         cancelResponse = null;
         Debug.Log("CANCEL");
 
-        Destroy(gameObject);
+        Destroy(popup_Prefab);
     }
 
     public void SetResponses(UnityAction okay, UnityAction cancel){
