@@ -28,6 +28,11 @@ public class DisplayCalendar : MonoBehaviour
             dayColor = newColor;
         }
 
+        public Color ReturnColor()
+        {
+            return dayColor;
+        }
+
         // Determines day number or validity based on color of cell. 
         public void UpdateDay(int newDayNum) {
             this.dayNum = newDayNum;
@@ -38,6 +43,7 @@ public class DisplayCalendar : MonoBehaviour
 
     // All the days in the month. 
     private List<Day> days = new List<Day>();
+    public static List<Day> staticdays = new List<Day>();
 
     // Collection of all 6 weeks. 
     public Transform[] weeks;
@@ -79,6 +85,7 @@ public class DisplayCalendar : MonoBehaviour
                         }                                                                   // Otherwise make it a viable day with color white.                          
 
                     days.Add(newDay);   // Add it to our list of days. 
+                    staticdays.Add(newDay);
                 }
             }
         } // End of Day Creation
@@ -88,17 +95,21 @@ public class DisplayCalendar : MonoBehaviour
             for (int i = 0; i < 42; i++) {
                 if (i < startDay || i - startDay >= endDay) {
                     days[i].UpdateColor(Color.grey);        // Invalid day, Grey. 
+                    staticdays[i].UpdateColor(Color.grey);
                 }
                 else {
-                    days[i].UpdateColor(Color.white);       // Valid day, White. 
+                    days[i].UpdateColor(Color.white);       // Valid day, White.
+                    staticdays[i].UpdateColor(Color.white);
                 }
                 days[i].UpdateDay(i - startDay);            // Updates day number
+                staticdays[i].UpdateDay(i - startDay);
             }
         }
 
         // Checks if day is current date. 
         if (DateTime.Now.Year == year && DateTime.Now.Month == month) {
             days[(DateTime.Now.Day - 1) + startDay].UpdateColor(Color.green);       // Valid day and it's today's date! Highlight it with green. 
+            staticdays[(DateTime.Now.Day - 1) + startDay].UpdateColor(Color.green);
         }
     }
 

@@ -10,10 +10,11 @@ public class DayLogic : MonoBehaviour
 {
     private UnityAction okayResponse;
     private UnityAction cancelResponse;
-    [SerializeField] private GameObject popup_Prefab;
+    public static int currday;
+    public int day;
 
     public void Day_Button(){
-        DayLogic popupScript = Instantiate(popup_Prefab).GetComponent<DayLogic>();
+        currday = day;
     }
 
     public void PopupOkay_Pressed(){
@@ -30,8 +31,6 @@ public class DayLogic : MonoBehaviour
         okayResponse?.Invoke();
         okayResponse = null;
         Debug.Log("OK");
-
-        Destroy(popup_Prefab);
     }
 
     // When 'CANCEL' button is clicked, we will call Cancel response action.
@@ -39,8 +38,6 @@ public class DayLogic : MonoBehaviour
         cancelResponse?.Invoke();
         cancelResponse = null;
         Debug.Log("CANCEL");
-
-        Destroy(popup_Prefab);
     }
 
     public void SetResponses(UnityAction okay, UnityAction cancel){
