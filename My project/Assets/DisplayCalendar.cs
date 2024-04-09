@@ -7,7 +7,6 @@ using TMPro;
 
 public class DisplayCalendar : MonoBehaviour
 {
-
     /// Every Cell in the calendar, each Day.
     public class Day {
 
@@ -15,17 +14,15 @@ public class DisplayCalendar : MonoBehaviour
         public Color dayColor;      // White = Not active, Green = Active. 
         public GameObject obj;     
 
-        /// Day Constructor
+        // Day Constructor
         public Day(int dayNum, Color dayColor, GameObject obj) {
-
-            //Debug.Log("Day: dayNum, dayColor, obj:          " + dayNum + ",       " + dayColor + ",       " + obj.ToString());
             this.dayNum = dayNum;
             this.obj = obj;
             UpdateColor(dayColor);
             UpdateDay(dayNum);
         }
 
-        /// Both the dayColor is updated, as well as the visual color on the screen.
+        // Both the dayColor is updated, as well as the visual color on the screen.
         public void UpdateColor(Color newColor) {
             obj.GetComponent<Image>().color = newColor;
             dayColor = newColor;
@@ -60,7 +57,7 @@ public class DisplayCalendar : MonoBehaviour
 
     void Start() { UpdateCalendar(DateTime.Now.Year, DateTime.Now.Month); }
 
-    void UpdateCalendar(int year, int month){
+    void UpdateCalendar(int year, int month) {
         
         DateTime temp           =    new DateTime(year, month, 1);
         this.currDate           =    temp;
@@ -71,12 +68,13 @@ public class DisplayCalendar : MonoBehaviour
         
         // Creates days (Only happens at the beginning to create game objects)
 
-        if(days.Count == 0) {                       // For every week (0 - 6), and for every day (0 - 7)
+        if(days.Count == 0) {                                                               // For every week (0 - 6), and for every day (0 - 7)
             for (int week = 0; week < 6; week++) {   
                 for (int dayOfWeek = 0; dayOfWeek < 7; dayOfWeek++) {
 
                     Day newDay;
-                    int currDayNum = (week * 7) + dayOfWeek;      // Our day will account for previous weeks before it. 
+                    int currDayNum = (week * 7) + dayOfWeek;                                // Our day will account for previous weeks before it. 
+
 
                     if (currDayNum < startDay || currDayNum - startDay >= endDay) {          // If our day is before day 1, or greater than the end of the month, make it gray. 
                         newDay = new Day(currDayNum - startDay, Color.grey, weeks[week].GetChild(dayOfWeek).gameObject);
@@ -84,7 +82,7 @@ public class DisplayCalendar : MonoBehaviour
 
                     else { 
                         newDay = new Day(currDayNum - startDay, Color.white,weeks[week].GetChild(dayOfWeek).gameObject); 
-                        }                                                              // Otherwise make it a viable day with color white.                          
+                        }                                                                   // Otherwise make it a viable day with color white.                          
 
                     days.Add(newDay);   // Add it to our list of days. 
                     staticdays.Add(newDay);
